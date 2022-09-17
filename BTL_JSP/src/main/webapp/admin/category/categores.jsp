@@ -7,6 +7,7 @@
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">Quản Lý Danh Mục</h3>
+			<a href="insertCategory.jsp" class="btn btn-success btn-sm" ">Thêm Mới Danh Mục </a>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
 					data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -23,8 +24,9 @@
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Name</th>
-						<th>Counts</th>
+						<th>Tên Danh Mục</th>
+						<th>Số lượng</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +35,9 @@
 						<td>${c.catId }</td>
 						<td>${c.catname }</td>
 						<td>${c.counts }</td>
+						<td><a href="../../DeleteCategory?id=${c.catId}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
+						<a href="?id=${c.catId}" class="btn btn-success btn-sm" ">Cập Nhật</a>
+						</td>
 					</tr>
 					</c:forEach>
 				</tbody>

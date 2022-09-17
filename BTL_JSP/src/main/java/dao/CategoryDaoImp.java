@@ -59,7 +59,7 @@ public class CategoryDaoImp implements Dao<Categories>{
 		// TODO Auto-generated method stub
 		Connection connection = JDBCUtil.getConnection();
 		try {
-			PreparedStatement pStatement = connection.prepareStatement("insert into Categories() values (?,?,?)");
+			PreparedStatement pStatement = connection.prepareStatement("insert into Categories(catId,catname,counts) values (?,?,?)");
 			pStatement.setInt(1, t.getCatId());
 			pStatement.setString(2, t.getCatname());
 			pStatement.setInt(3, t.getCounts());
