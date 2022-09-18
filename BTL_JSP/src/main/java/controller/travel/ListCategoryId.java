@@ -1,26 +1,28 @@
-package controller.category;
+package controller.travel;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.CategoryDaoImp;
+import entity.Categories;
 
 /**
- * Servlet implementation class DeleteCategory
+ * Servlet implementation class ListCategoryId
  */
-@WebServlet("/DeleteCategory")
-public class DeleteCategory extends HttpServlet {
+@WebServlet("/ListCategoryId")
+public class ListCategoryId extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static CategoryDaoImp categoryDaoImp;   
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCategory() {
+    public ListCategoryId() {
         super();
-        categoryDaoImp = new CategoryDaoImp();
         // TODO Auto-generated constructor stub
     }
 
@@ -29,9 +31,9 @@ public class DeleteCategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
-		categoryDaoImp.remote(id);
-		response.sendRedirect("admin/category/index.jsp");
+		List<Categories> dateList = new CategoryDaoImp().getAll();
+		request.setAttribute("list", dateList);
+		request.getRequestDispatcher("admin/travel/insertTravel.jsp").forward(request, response);
 	}
 
 	/**

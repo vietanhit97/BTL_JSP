@@ -39,7 +39,8 @@ public class CategoryDaoImp implements Dao<Categories>{
 		Categories categories = new Categories();
 		Connection connection = JDBCUtil.getConnection();
 		try {
-			PreparedStatement pStatement = connection.prepareStatement("select * from Categories where id = ?");
+			PreparedStatement pStatement = connection.prepareStatement("select * from Categories where catId = ?");
+			pStatement.setInt(1, id);
 			ResultSet rSet = pStatement.executeQuery();
 			while (rSet.next()) {
 				categories.setCatId(rSet.getInt("catId"));

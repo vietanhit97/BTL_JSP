@@ -6,19 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.CategoryDaoImp;
+import entity.Categories;
 
 /**
- * Servlet implementation class DeleteCategory
+ * Servlet implementation class UpdateCategory
  */
-@WebServlet("/DeleteCategory")
-public class DeleteCategory extends HttpServlet {
+@WebServlet("/UpdateCategory")
+public class UpdateCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static CategoryDaoImp categoryDaoImp;   
+    private static CategoryDaoImp categoryDaoImp;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCategory() {
+    public UpdateCategory() {
         super();
         categoryDaoImp = new CategoryDaoImp();
         // TODO Auto-generated constructor stub
@@ -29,9 +31,21 @@ public class DeleteCategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
-		categoryDaoImp.remote(id);
-		response.sendRedirect("admin/category/index.jsp");
+		request.setCharacterEncoding("UTF-8");
+		int id = Integer.parseInt(request.getParameter("catId"));
+		String nameString = request.getParameter("catname");
+		int counts = Integer.parseInt(request.getParameter("counts"));
+		Categories  categories = new Categories();
+		categories.setCatId(id);
+		categories.setCatname(nameString);
+		categories.setCounts(counts);
+		boolean bl = categoryDaoImp.edit(categories);
+		if (bl) {
+			response.sendRedirect("admin/category/index.jsp");
+		}else {
+			request.setAttribute("err", "Cập nhật không thành công");
+			request.getRequestDispatcher("admin/category/updateCategory.jsp").forward(request, response);
+		}
 	}
 
 	/**

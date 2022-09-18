@@ -6,21 +6,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.CategoryDaoImp;
+import entity.Categories;
 
 /**
- * Servlet implementation class DeleteCategory
+ * Servlet implementation class PreUpdateCategory
  */
-@WebServlet("/DeleteCategory")
-public class DeleteCategory extends HttpServlet {
+@WebServlet("/PreUpdateCategory")
+public class PreUpdateCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static CategoryDaoImp categoryDaoImp;   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCategory() {
+    public PreUpdateCategory() {
         super();
-        categoryDaoImp = new CategoryDaoImp();
+        categoryDaoImp=new CategoryDaoImp();
         // TODO Auto-generated constructor stub
     }
 
@@ -30,8 +32,9 @@ public class DeleteCategory extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
-		categoryDaoImp.remote(id);
-		response.sendRedirect("admin/category/index.jsp");
+		Categories category = categoryDaoImp.getById(id);
+		request.setAttribute("c", category);
+		request.getRequestDispatcher("admin/category/updateCategory.jsp").forward(request, response);
 	}
 
 	/**

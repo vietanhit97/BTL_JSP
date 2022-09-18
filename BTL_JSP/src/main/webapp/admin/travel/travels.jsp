@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>	
 <%@ include file="../layout/header.jsp"%>
 <section class="content">
 	<!-- Default box -->
 	<div class="box">
 		<div class="box-header with-border">
-			<h3 class="box-title">Quản Lý Danh Mục</h3>
-			<a href="insertCategory.jsp" class="btn btn-success btn-sm" ">Thêm Mới Danh Mục </a>
+			<h3 class="box-title">Quản Lý Tour</h3>
+			<a href="catId.jsp" class="btn btn-success btn-sm" ">Thêm Mới Tour </a>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
 					data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -24,19 +25,26 @@
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Tên Danh Mục</th>
-						<th>Số lượng</th>
+						<th>Tên Tour</th>
+						<th>Giá </th>
+						<th>Số Ngày Tour </th>
+						<th>Danh Mục </th>
+						<th>Ngày Khời Hành </th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach   items="${list}" var="c">
+					<c:forEach  items="${list}" var="tr">
 					<tr>
-						<td>${c.catId }</td>
-						<td>${c.catname }</td>
-						<td>${c.counts }</td>
-						<td><a href="../../DeleteCategory?id=${c.catId}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
-						<a href="../../PreUpdateCategory?id=${c.catId}" class="btn btn-success btn-sm" ">Cập Nhật</a>
+						<td>${tr.trId }</td>
+						<td>${tr.name }</td>
+						<td><fmt:formatNumber value="${tr.price}" /></td>
+						<td>${tr.days }</td>
+						<td>${tr.catId }</td>
+							<td><fmt:formatDate value="${tr.startDate}"
+							pattern="dd/MM/yyyy" /></td>
+						<td><a href="../../DeleteTravel?id=${tr.trId }" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
+						<a href="../../PreUpdateTravel?id=${tr.trId }" class="btn btn-success btn-sm" ">Cập Nhật</a>
 						</td>
 					</tr>
 					</c:forEach>
