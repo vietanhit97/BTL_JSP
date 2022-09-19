@@ -13,16 +13,16 @@
 	name="viewport">
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet"
-	href="<c:url value="../css/css/bootstrap.min.css"/>">
+	href="${pageContext.request.contextPath}/admin/css/css/bootstrap.min.css"/>
 <link rel="stylesheet"
-	href="<c:url value="../css/css/font-awesome.min.css"/>">
-<link rel="stylesheet" href="<c:url value="../css/css/AdminLTE.css"/>">
+	href="${pageContext.request.contextPath}/admin/css/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/AdminLTE.css"/>
 <link rel="stylesheet"
-	href="<c:url value="../css/css/_all-skins.min.css"/>">
-<link rel="stylesheet" href="<c:url value="../css/css/jquery-ui.css"/>">
-<link rel="stylesheet" href="<c:url value="../css/css/style.css"/>">
-<script src="js/angular.min.js"></script>
-<script src="js/app.js"></script>
+	href="${pageContext.request.contextPath}/admin/css/css/_all-skins.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/jquery-ui.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/style.css"/>
+<script src="${pageContext.request.contextPath}/admin/css/js/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/app.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<!-- Site wrapper -->

@@ -14,13 +14,13 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
-<script src="<c:url value="../css/js/jquery.min.js"/>"></script>
-<script src="<c:url value="../css/js/jquery-ui.js"/>"></script>
-<script src="<c:url value="../css/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="../css/js/adminlte.min.js"/>"></script>
-<script src="<c:url value="../css/js/dashboard.js"/>"></script>
-<script src="<c:url value="../css/tinymce/tinymce.min.js"/>"></script>
-<script src="<c:url value="../css/tinymce/config.js"/>"></script>
-<script src="<c:url value="../css/js/function.js"/>"></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/jquery.min.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/jquery-ui.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/bootstrap.min.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/adminlte.min.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/dashboard.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/tinymce/tinymce.min.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/tinymce/config.js"/></script>
+<script src="${pageContext.request.contextPath}/admin/css/js/function.js"/></script>
 </body>
 </html>
