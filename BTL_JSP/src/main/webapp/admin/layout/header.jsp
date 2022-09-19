@@ -205,7 +205,7 @@
 						</span>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="../category/index.jsp"><i
+							<li><a href="${pageContext.request.contextPath}/admin/category/index.jsp"><i
 									class="fa fa-circle-o"></i> Chi Tiết Danh Mục</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i
@@ -215,7 +215,7 @@
 						</span>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="../travel/index.jsp"><i class="fa fa-circle-o"></i>Chi Tiết Tour</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/travel/index.jsp"><i class="fa fa-circle-o"></i>Chi Tiết Tour</a></li>
 						</ul></li>
 				</ul>
 			</section>

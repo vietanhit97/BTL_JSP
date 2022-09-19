@@ -41,10 +41,10 @@ public class InsertCategory extends HttpServlet {
 		categories.setCounts(counts);
 		boolean bl = categoryDaoImp.add(categories);
 		if (bl) {
-			response.sendRedirect("admin/category/index.jsp");
+			response.sendRedirect("ListCategory");
 		}else {
 			request.setAttribute("err", "Thêm mới không thành công ");
-			request.getRequestDispatcher("insertCategory.jsp").forward(request, response);
+			response.sendRedirect("InsertCategory");
 		}
 		
 	}

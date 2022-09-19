@@ -8,7 +8,7 @@
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">Quản Lý Tour</h3>
-			<a href="../../ListCategoryId" class="btn btn-success btn-sm" ">Thêm Mới Tour </a>
+			<a href="../../ListCategoryId" class="btn btn-success btn-sm" >Thêm Mới Tour </a>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
 					data-widget="collapse" data-toggle="tooltip" title="Collapse">
