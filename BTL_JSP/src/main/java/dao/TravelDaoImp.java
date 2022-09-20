@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import entity.Travels;
 import util.JDBCUtil;
 
@@ -123,5 +121,30 @@ public class TravelDaoImp implements Dao<Travels> {
 		}
 		return false;
 	}
+	@Override
+	public List<Travels> getLikeName(String key) {
+		List<Travels> listData = new ArrayList<Travels>();
+		Connection connection = JDBCUtil.getConnection();
+		try {
+			PreparedStatement pStatement = connection.prepareStatement("select * from Travels where name like ?");
+			pStatement.setString(1, "%"+key+"%");
+			ResultSet rSet = pStatement.executeQuery();
+			while(rSet.next()){
+				Travels travels = new Travels();
+				travels.setTrId(rSet.getInt("trId"));
+				travels.setName(rSet.getString("name"));
+				travels.setPrice(rSet.getFloat("price"));
+				travels.setDays(rSet.getInt("days"));
+				travels.setCatId(rSet.getInt("catId"));
+				travels.setStartDate(rSet.getDate("startDate"));
+				listData.add(travels);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listData;
+	}
+
 
 }

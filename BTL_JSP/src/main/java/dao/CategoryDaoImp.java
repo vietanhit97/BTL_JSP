@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import entity.Categories;
 import util.JDBCUtil;
 
@@ -111,5 +110,31 @@ public class CategoryDaoImp implements Dao<Categories>{
 		}
 		return false;
 	}
+
+	@Override
+	public List<Categories> getLikeName(String key) {
+		List<Categories> listData = new ArrayList<Categories>();
+		Connection connection = JDBCUtil.getConnection();
+		try {
+			PreparedStatement pStatement = connection.prepareStatement("select * from Categories where catname like ?");
+			pStatement.setString(1, "%"+key+"%");
+			ResultSet resultSet = pStatement.executeQuery();
+			while(resultSet.next()){
+				Categories categories = new Categories();
+				categories.setCatId(resultSet.getInt("catId"));
+				categories.setCatname(resultSet.getString("catname"));
+				categories.setCounts(resultSet.getInt("counts"));
+				listData.add(categories);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listData;
+	}
+
+
+
+
 
 }

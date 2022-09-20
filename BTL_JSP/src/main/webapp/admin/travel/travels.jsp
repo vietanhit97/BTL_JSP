@@ -8,7 +8,17 @@
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">Quản Lý Tour</h3>
-			<a href="../../ListCategoryId" class="btn btn-success btn-sm" >Thêm Mới Tour </a>
+						<form action="${pageContext.request.contextPath}/SearchTravels" method="post" class="form-inline" role="form">
+				<div class="form-group">
+					<input type="text" name="key" class="form-control" 
+						placeholder="Tìm kiếm">
+				</div>
+				<button type="submit" class="btn btn-primary">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+				<a href="${pageContext.request.contextPath}/ListCategoryId" class="btn btn-success btn-sm">Thêm
+					Mới Tour </a>
+			</form>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
 					data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -43,8 +53,8 @@
 						<td>${tr.catId }</td>
 							<td><fmt:formatDate value="${tr.startDate}"
 							pattern="dd/MM/yyyy" /></td>
-						<td><a href="../../DeleteTravel?id=${tr.trId }" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
-						<a href="../../PreUpdateTravel?id=${tr.trId }" class="btn btn-success btn-sm" ">Cập Nhật</a>
+						<td><a href="${pageContext.request.contextPath}/DeleteTravel?id=${tr.trId }" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
+						<a href="${pageContext.request.contextPath}/PreUpdateTravel?id=${tr.trId }" class="btn btn-success btn-sm" >Cập Nhật</a>
 						</td>
 					</tr>
 					</c:forEach>

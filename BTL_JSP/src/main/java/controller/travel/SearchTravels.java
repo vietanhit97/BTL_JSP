@@ -13,18 +13,17 @@ import dao.TravelDaoImp;
 import entity.Travels;
 
 /**
- * Servlet implementation class ListTravels
+ * Servlet implementation class SearchTravels
  */
-@WebServlet("/ListTravels")
-public class ListTravels extends HttpServlet {
+@WebServlet("/SearchTravels")
+public class SearchTravels extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static TravelDaoImp travelDaoImp;  
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListTravels() {
+    public SearchTravels() {
         super();
-        travelDaoImp = new TravelDaoImp();
         // TODO Auto-generated constructor stub
     }
 
@@ -32,9 +31,10 @@ public class ListTravels extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		List<Travels> dataList = travelDaoImp.getAll();
-		request.setAttribute("list",dataList);
+		request.setCharacterEncoding("UTF-8");
+		String keyString = request.getParameter("key");
+		List<Travels> dataList = new TravelDaoImp().getLikeName(keyString);
+		request.setAttribute("list", dataList);
 		request.getRequestDispatcher("admin/travel/travels.jsp").forward(request, response);
 	}
 

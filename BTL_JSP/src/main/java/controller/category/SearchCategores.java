@@ -1,4 +1,4 @@
-package controller.travel;
+package controller.category;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,22 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TravelDaoImp;
-import entity.Travels;
+import dao.CategoryDaoImp;
+import entity.Categories;
 
 /**
- * Servlet implementation class ListTravels
+ * Servlet implementation class SearchCategores
  */
-@WebServlet("/ListTravels")
-public class ListTravels extends HttpServlet {
+@WebServlet("/SearchCategores")
+public class SearchCategores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static TravelDaoImp travelDaoImp;  
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListTravels() {
+    public SearchCategores() {
         super();
-        travelDaoImp = new TravelDaoImp();
         // TODO Auto-generated constructor stub
     }
 
@@ -33,9 +32,11 @@ public class ListTravels extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Travels> dataList = travelDaoImp.getAll();
-		request.setAttribute("list",dataList);
-		request.getRequestDispatcher("admin/travel/travels.jsp").forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String keyString = request.getParameter("key");
+		List<Categories> dataList = new CategoryDaoImp().getLikeName(keyString);
+		request.setAttribute("list",dataList );
+		request.getRequestDispatcher("admin/category/categores.jsp").forward(request, response);
 	}
 
 	/**
