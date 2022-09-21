@@ -199,7 +199,7 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="treeview"><a href="#"> <i
-							class="fa fa-dashboard"></i> <span>Danh Mục</span> <span
+							class="fa fa-list"></i> <span>Danh Mục</span> <span
 							class="pull-right-container"> <i
 								class="fa fa-angle-left pull-right"></i>
 						</span>
@@ -209,7 +209,7 @@
 									class="fa fa-circle-o"></i> Chi Tiết Danh Mục</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i
-							class="fa fa-dashboard"></i> <span>Tour</span> <span
+							class="fa fa-plane"></i> <span>Tour</span> <span
 							class="pull-right-container"> <i
 								class="fa fa-angle-left pull-right"></i>
 						</span>

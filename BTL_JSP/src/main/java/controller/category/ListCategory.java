@@ -23,7 +23,6 @@ public class ListCategory extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public ListCategory() {
-        super();
         categoryDaoImp = new CategoryDaoImp();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +32,18 @@ public class ListCategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Categories> dataList = categoryDaoImp.getAll();
-		request.setAttribute("list",dataList );
+		int index = Integer.parseInt(request.getParameter("index"));
+		int count = categoryDaoImp.count();
+		int pageSize = 4 ;
+		int endPage = 0 ;
+		endPage = count/pageSize;
+		if(count % pageSize !=0) {
+			endPage++;
+		}
+		List<Categories> dataListPaginate = categoryDaoImp.getPaginate(index);
+		request.setAttribute("list",dataListPaginate );
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("index", index);
 		request.getRequestDispatcher("admin/category/categores.jsp").forward(request, response);
 	}
 

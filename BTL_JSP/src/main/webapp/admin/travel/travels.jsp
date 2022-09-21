@@ -62,7 +62,16 @@
 			</table>
 		</div>
 		<!-- /.box-body -->
-		<div class="box-footer">Footer</div>
+		<div class="box-footer text-center">
+			<nav aria-label="Page navigation ">
+				<ul class="pagination">
+					<c:forEach begin="1" end="${endPage}" var="i">
+						<li class="page-item"><a class="page-link" id="${i}"
+							href="${pageContext.request.contextPath}/ListTravels?index=${i}">${i}</a></li>
+					</c:forEach>
+				</ul>
+			</nav>
+		</div>
 		<!-- /.box-footer-->
 	</div>
 	<!-- /.box -->

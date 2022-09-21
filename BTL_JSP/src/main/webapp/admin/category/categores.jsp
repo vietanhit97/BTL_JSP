@@ -7,7 +7,8 @@
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">Quản Lý Danh Mục</h3>
-			<form action="${pageContext.request.contextPath}/SearchCategores" method="post" class="form-inline" role="form">
+			<form action="${pageContext.request.contextPath}/SearchCategores"
+				method="post" class="form-inline" role="form">
 				<div class="form-group">
 					<input type="text" name="key" class="form-control" id=""
 						placeholder="Tìm kiếm">
@@ -15,8 +16,9 @@
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
-				<a href="${pageContext.request.contextPath}/admin/category/insertCategory.jsp" class="btn btn-success btn-sm">Thêm
-					Mới Danh Mục </a>
+				<a
+					href="${pageContext.request.contextPath}/admin/category/insertCategory.jsp"
+					class="btn btn-success btn-sm">Thêm Mới Danh Mục </a>
 			</form>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -45,7 +47,8 @@
 							<td>${c.catId }</td>
 							<td>${c.catname }</td>
 							<td>${c.counts }</td>
-							<td><a href="${pageContext.request.contextPath}/DeleteCategory?id=${c.catId}"
+							<td><a
+								href="${pageContext.request.contextPath}/DeleteCategory?id=${c.catId}"
 								class="btn btn-danger btn-sm"
 								onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a> <a
 								href="${pageContext.request.contextPath}/PreUpdateCategory?id=${c.catId}"
@@ -56,7 +59,16 @@
 			</table>
 		</div>
 		<!-- /.box-body -->
-		<div class="box-footer">Footer</div>
+		<div class="box-footer text-center">
+			<nav aria-label="Page navigation ">
+				<ul class="pagination">
+					<c:forEach begin="1" end="${endPage}" var="i">
+						<li class="page-item"><a class="page-link" id="${i}"
+							href="${pageContext.request.contextPath}/ListCategory?index=${i}">${i}</a></li>
+					</c:forEach>
+				</ul>
+			</nav>
+		</div>
 		<!-- /.box-footer-->
 	</div>
 	<!-- /.box -->

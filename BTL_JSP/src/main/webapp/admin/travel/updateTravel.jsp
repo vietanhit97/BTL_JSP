@@ -24,11 +24,11 @@
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<div class="form-group">
 							<label for="">Id:</label> <input type="text" class="form-control"
-								name="trId" value=${tr.trId } readonly="readonly">
+								name="trId" value="${tr.trId}" readonly="readonly">
 						</div>
 						<div class="form-group">
 							<label for="">Tên Tour:</label> <input type="text"
-								class="form-control" name="name" placeholder="Nhập Tên Tour" value=${tr.name }>
+								class="form-control" name="name" placeholder="Nhập Tên Tour" } value="${tr.name}" >
 						</div>
 						<div class="form-group">
 							<label for="">Giá:</label> <input type="text"

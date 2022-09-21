@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import dao.TravelDaoImp;
 import entity.Travels;
 
@@ -33,8 +32,18 @@ public class ListTravels extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Travels> dataList = travelDaoImp.getAll();
-		request.setAttribute("list",dataList);
+		int index = Integer.parseInt(request.getParameter("index"));
+		int count = travelDaoImp.count();
+		int pageSize = 4 ;
+		int endPage = 0 ;
+		endPage = count/pageSize;
+		if(count % pageSize !=0) {
+			endPage++;
+		}
+		List<Travels> dataListPaginate = travelDaoImp.getPaginate(index);
+		request.setAttribute("list",dataListPaginate );
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("index", index);
 		request.getRequestDispatcher("admin/travel/travels.jsp").forward(request, response);
 	}
 

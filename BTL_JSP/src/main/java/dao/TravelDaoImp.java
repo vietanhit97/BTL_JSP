@@ -35,6 +35,7 @@ public class TravelDaoImp implements Dao<Travels> {
 		}
 		return dataList;
 	}
+
 	@Override
 	public Travels getById(int id) {
 		// TODO Auto-generated method stub
@@ -121,15 +122,16 @@ public class TravelDaoImp implements Dao<Travels> {
 		}
 		return false;
 	}
+
 	@Override
 	public List<Travels> getLikeName(String key) {
 		List<Travels> listData = new ArrayList<Travels>();
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pStatement = connection.prepareStatement("select * from Travels where name like ?");
-			pStatement.setString(1, "%"+key+"%");
+			pStatement.setString(1, "%" + key + "%");
 			ResultSet rSet = pStatement.executeQuery();
-			while(rSet.next()){
+			while (rSet.next()) {
 				Travels travels = new Travels();
 				travels.setTrId(rSet.getInt("trId"));
 				travels.setName(rSet.getString("name"));
@@ -146,5 +148,49 @@ public class TravelDaoImp implements Dao<Travels> {
 		return listData;
 	}
 
+	@Override
+	public List<Travels> getPaginate(int first) {
+		List<Travels> dataList = new ArrayList<Travels>();
+		// TODO Auto-generated method stub
+		Connection connection = JDBCUtil.getConnection();
+		try {
+			PreparedStatement pStatement = connection.prepareStatement(
+					"with x as(select ROW_NUMBER() over (order by trId asc) as c, * from Travels )"
+							+ "select * from x where c between ?*4-3 and ?*4");
+			pStatement.setInt(1, first);
+			pStatement.setInt(2, first);
+			ResultSet rSet = pStatement.executeQuery();
+			while (rSet.next()) {
+				Travels travels = new Travels();
+				travels.setTrId(rSet.getInt("trId"));
+				travels.setName(rSet.getString("name"));
+				travels.setPrice(rSet.getFloat("price"));
+				travels.setDays(rSet.getInt("days"));
+				travels.setCatId(rSet.getInt("catId"));
+				travels.setStartDate(rSet.getDate("startDate"));
+				dataList.add(travels);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dataList;
+	}
+
+	@Override
+	public int count() {
+		Connection connection = JDBCUtil.getConnection();
+		try {
+			PreparedStatement pStatement = connection.prepareStatement("select COUNT(*) from Travels ");
+			ResultSet rSet = pStatement.executeQuery();
+			while (rSet.next()) {
+				return rSet.getInt(1);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }
