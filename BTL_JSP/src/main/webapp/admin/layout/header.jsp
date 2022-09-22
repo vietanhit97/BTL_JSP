@@ -13,16 +13,25 @@
 	name="viewport">
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/css/css/bootstrap.min.css"/>
+	href="${pageContext.request.contextPath}/admin/css/css/bootstrap.min.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/css/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/AdminLTE.css"/>
+	href="${pageContext.request.contextPath}/admin/css/css/font-awesome.min.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/css/css/_all-skins.min.css"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/jquery-ui.css"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/css/style.css"/>
-<script src="${pageContext.request.contextPath}/admin/css/js/angular.min.js"></script>
+	href="${pageContext.request.contextPath}/admin/css/css/AdminLTE.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/css/css/_all-skins.min.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/css/css/jquery-ui.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/css/css/style.css" />
+<script
+	src="${pageContext.request.contextPath}/admin/css/js/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/admin/css/js/app.js"></script>
+<script>
+	function base_url() {
+		return "{{url('')}}"; //trả về đường link gốc
+	}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<!-- Site wrapper -->
@@ -198,24 +207,25 @@
 				<!-- /.search form -->
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
-					<li class="treeview"><a href="#"> <i
-							class="fa fa-list"></i> <span>Danh Mục</span> <span
-							class="pull-right-container"> <i
-								class="fa fa-angle-left pull-right"></i>
+					<li class="treeview"><a href="#"> <i class="fa fa-list"></i>
+							<span>Danh Mục</span> <span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="${pageContext.request.contextPath}/admin/category/index.jsp"><i
+							<li><a
+								href="${pageContext.request.contextPath}/admin/category/index.jsp"><i
 									class="fa fa-circle-o"></i> Chi Tiết Danh Mục</a></li>
 						</ul></li>
-					<li class="treeview"><a href="#"> <i
-							class="fa fa-plane"></i> <span>Tour</span> <span
-							class="pull-right-container"> <i
+					<li class="treeview"><a href="#"> <i class="fa fa-plane"></i>
+							<span>Tour</span> <span class="pull-right-container"> <i
 								class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="${pageContext.request.contextPath}/admin/travel/index.jsp"><i class="fa fa-circle-o"></i>Chi Tiết Tour</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/admin/travel/index.jsp"><i
+									class="fa fa-circle-o"></i>Chi Tiết Tour</a></li>
 						</ul></li>
 				</ul>
 			</section>
@@ -229,7 +239,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Blank page <small>it all starts here</small>
+					Admin <small>Quản Lý</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

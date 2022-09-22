@@ -25,13 +25,13 @@
 						name="catId" placeholder="Nhập ID Danh Mục" value="${c.catId}" required="required" readonly="readonly">
 				</div>
 				<div class="form-group">
-					<label for="">Tên Danh Mục:</label> <input type="text" value=${c.catname }
+					<label for="">Tên Danh Mục:</label> <input type="text" value="${c.catname }"
 						class="form-control" name="catname"
 						placeholder="Nhập Tên Danh Mục" required="required">
 				</div>
 				<div class="form-group">
 					<label for="">Số Lượng:</label> <input type="text"
-						class="form-control" name="counts" placeholder="Nhập Số Lượng" value=${c.counts }>
+						class="form-control" name="counts" placeholder="Nhập Số Lượng" value="${c.counts }">
 				</div>
 				<button type="submit" class="btn btn-primary">Cập Nhật Mới</button>
 			</form>

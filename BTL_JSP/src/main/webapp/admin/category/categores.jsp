@@ -10,7 +10,7 @@
 			<form action="${pageContext.request.contextPath}/SearchCategores"
 				method="post" class="form-inline" role="form">
 				<div class="form-group">
-					<input type="text" name="key" class="form-control" id=""
+					<input oninput="searchByName(this)" id="content" type="text" name="key" class="form-control" 
 						placeholder="Tìm kiếm">
 				</div>
 				<button type="submit" class="btn btn-primary">
