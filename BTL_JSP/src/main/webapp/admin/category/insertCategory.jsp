@@ -21,24 +21,21 @@
 		<div class="box-body">
 			<form action="../../them-danh-muc" method="POST" role="form">
 				<div class="form-group">
-					<label for="">Id:</label> <input type="text" class="form-control"
+					<label for=""><fmt:message bundle="${bun}" key="theadId"/>:</label> <input type="text" class="form-control"
 						name="catId" placeholder="Nhập ID Danh Mục" required="required">
 				</div>
 				<div class="form-group">
-					<label for="">Tên Danh Mục:</label> <input type="text"
+					<label for=""><fmt:message bundle="${bun}" key="theadNameCategory"/>:</label> <input type="text"
 						class="form-control" name="catname"
 						placeholder="Nhập Tên Danh Mục" required="required">
 				</div>
 				<div class="form-group">
-					<label for="">Số Lượng:</label> <input type="text"
+					<label for=""><fmt:message bundle="${bun}" key="theadCount"/>:</label> <input type="text"
 						class="form-control" name="counts" placeholder="Nhập Số Lượng">
 				</div>
-				<button type="submit" class="btn btn-primary">Thêm Mới</button>
+				<button type="submit" class="btn btn-primary"><fmt:message bundle="${bun}" key="addNew"/></button>
 			</form>
 		</div>
-		<!-- /.box-body -->
-		<div class="box-footer">Footer</div>
-		<!-- /.box-footer-->
 	</div>
 	<!-- /.box -->
 </section>

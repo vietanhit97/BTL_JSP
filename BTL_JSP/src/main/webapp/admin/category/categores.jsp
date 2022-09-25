@@ -6,19 +6,19 @@
 	<!-- Default box -->
 	<div class="box">
 		<div class="box-header with-border">
-			<h3 class="box-title">Quản Lý Danh Mục</h3>
+			<h3 class="box-title"><fmt:message bundle="${bun}" key="manageCategory"/></h3>
 			<form action="${pageContext.request.contextPath}/SearchCategores"
 				method="post" class="form-inline" role="form">
 				<div class="form-group">
 					<input oninput="searchByName(this)" id="content" type="text" name="key" class="form-control" 
-						placeholder="Tìm kiếm">
+						placeholder="<fmt:message bundle="${bun}" key="Search"/>">
 				</div>
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
 				<a
 					href="${pageContext.request.contextPath}/admin/category/insertCategory.jsp"
-					class="btn btn-success btn-sm">Thêm Mới Danh Mục </a>
+					class="btn btn-success btn-sm"><fmt:message bundle="${bun}" key="theadAddNewCategory"/></a>
 			</form>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -35,9 +35,9 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>Id</th>
-						<th>Tên Danh Mục</th>
-						<th>Số lượng</th>
+						<th><fmt:message bundle="${bun}" key="theadId"/></th>
+						<th><fmt:message bundle="${bun}" key="theadNameCategory"/></th>
+						<th><fmt:message bundle="${bun}" key="theadCount"/></th>
 						<th></th>
 					</tr>
 				</thead>
@@ -50,9 +50,9 @@
 							<td><a
 								href="${pageContext.request.contextPath}/DeleteCategory?id=${c.catId}"
 								class="btn btn-danger btn-sm"
-								onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a> <a
+								onclick="return confirm('Bạn có muốn xóa không ?')"><fmt:message bundle="${bun}" key="theadDelete"/></a> <a
 								href="${pageContext.request.contextPath}/PreUpdateCategory?id=${c.catId}"
-								class="btn btn-success btn-sm">Cập Nhật</a></td>
+								class="btn btn-success btn-sm"><fmt:message bundle="${bun}" key="theadUpdate"/></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

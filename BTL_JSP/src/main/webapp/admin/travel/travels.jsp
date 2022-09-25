@@ -7,17 +7,16 @@
 	<!-- Default box -->
 	<div class="box">
 		<div class="box-header with-border">
-			<h3 class="box-title">Quản Lý Tour</h3>
+			<h3 class="box-title"><fmt:message bundle="${bun}" key="manageTravel"/></h3>
 						<form action="${pageContext.request.contextPath}/SearchTravels" method="post" class="form-inline" role="form">
 				<div class="form-group">
 					<input type="text" name="key" class="form-control" 
-						placeholder="Tìm kiếm">
+						placeholder="<fmt:message bundle="${bun}" key="Search"/>">
 				</div>
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
-				<a href="${pageContext.request.contextPath}/ListCategoryId" class="btn btn-success btn-sm">Thêm
-					Mới Tour </a>
+				<a href="${pageContext.request.contextPath}/ListCategoryId" class="btn btn-success btn-sm"><fmt:message bundle="${bun}" key="theadAddNewTravel"/></a>
 			</form>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -34,12 +33,12 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>Id</th>
-						<th>Tên Tour</th>
-						<th>Giá </th>
-						<th>Số Ngày Tour </th>
-						<th>Danh Mục </th>
-						<th>Ngày Khời Hành </th>
+						<th><fmt:message bundle="${bun}" key="theadId"/></th>
+						<th><fmt:message bundle="${bun}" key="theadNameTravel"/></th>
+						<th><fmt:message bundle="${bun}" key="theadPrice"/> </th>
+						<th><fmt:message bundle="${bun}" key="theadDays"/> </th>
+						<th><fmt:message bundle="${bun}" key="theadCategory"/> </th>
+						<th><fmt:message bundle="${bun}" key="theadDate"/></th>
 						<th></th>
 					</tr>
 				</thead>
@@ -53,8 +52,8 @@
 						<td>${tr.catId }</td>
 							<td><fmt:formatDate value="${tr.startDate}"
 							pattern="dd/MM/yyyy" /></td>
-						<td><a href="${pageContext.request.contextPath}/DeleteTravel?id=${tr.trId }" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">Xóa</a>
-						<a href="${pageContext.request.contextPath}/PreUpdateTravel?id=${tr.trId }" class="btn btn-success btn-sm" >Cập Nhật</a>
+						<td><a href="${pageContext.request.contextPath}/DeleteTravel?id=${tr.trId }" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')"><fmt:message bundle="${bun}" key="theadDelete"/></a>
+						<a href="${pageContext.request.contextPath}/PreUpdateTravel?id=${tr.trId }" class="btn btn-success btn-sm" ><fmt:message bundle="${bun}" key="theadUpdate"/></a>
 						</td>
 					</tr>
 					</c:forEach>

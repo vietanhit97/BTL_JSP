@@ -23,45 +23,42 @@
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<div class="form-group">
-							<label for="">Id:</label> <input type="text" class="form-control"
+							<label for=""><fmt:message bundle="${bun}" key="theadId"/>:</label> <input type="text" class="form-control"
 								name="trId" value="${tr.trId}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<label for="">Tên Tour:</label> <input type="text"
+							<label for=""><fmt:message bundle="${bun}" key="theadNameTravel"/>:</label> <input type="text"
 								class="form-control" name="name" placeholder="Nhập Tên Tour" } value="${tr.name}" >
 						</div>
 						<div class="form-group">
-							<label for="">Giá:</label> <input type="text"
+							<label for=""><fmt:message bundle="${bun}" key="theadPrice"/>:</label> <input type="text"
 								class="form-control" name="price" placeholder="Nhập Giá Tour"
 								value=${tr.price }>
 						</div>
-						<button type="submit" class="btn btn-primary">Cập Nhật</button>
+						<button type="submit" class="btn btn-primary"><fmt:message bundle="${bun}" key="newUpdate"/></button>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<div class="form-group">
-							<label for="">Số Ngày Tour:</label> <input type="text"
+							<label for=""><fmt:message bundle="${bun}" key="theadDays"/>:</label> <input type="text"
 								value=${tr.days } class="form-control" name="days">
 						</div>
 						<div class="form-group">
-							<label for="">Danh Mục Tour:</label> <select name="catId"
+							<label for=""><fmt:message bundle="${bun}" key="theadCategory"/>:</label> <select name="catId"
 								id="input" class="form-control" required="required">
-								<option value="">Chọn Danh Mục</option>
+								<option value=""><fmt:message bundle="${bun}" key="selectCategory"/></option>
 								<c:forEach items="${list}" var="c">
 									<option value="${c.catId}">${c.catname }</option>
 								</c:forEach>
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="">Ngày:</label> <input type="date"
+							<label for=""><fmt:message bundle="${bun}" key="theadDate"/>:</label> <input type="date"
 								class="form-control" name="startDate" value=${tr.startDate }>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		<!-- /.box-body -->
-		<div class="box-footer">Footer</div>
-		<!-- /.box-footer-->
 	</div>
 	<!-- /.box -->
 </section>

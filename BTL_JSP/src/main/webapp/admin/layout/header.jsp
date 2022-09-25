@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>AdminLTE 2 | Blank Page</title>
+<fmt:setLocale value="${lang }" scope="session" />
+<fmt:setBundle basename="lang.Language" var="bun" scope="session" />
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -208,24 +211,28 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="treeview"><a href="#"> <i class="fa fa-list"></i>
-							<span>Danh Mục</span> <span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
+							<span><fmt:message bundle="${bun }" key="theadCategory" /></span>
+							<span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
 						<ul class="treeview-menu">
 							<li><a
 								href="${pageContext.request.contextPath}/admin/category/index.jsp"><i
-									class="fa fa-circle-o"></i> Chi Tiết Danh Mục</a></li>
+									class="fa fa-circle-o"></i> <fmt:message bundle="${bun }"
+										key="theadDetailCategory" /></a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-plane"></i>
-							<span>Tour</span> <span class="pull-right-container"> <i
+							<span><fmt:message bundle="${bun}" key="theadTravel" /> </span>
+							<span class="pull-right-container"> <i
 								class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
 						<ul class="treeview-menu">
 							<li><a
 								href="${pageContext.request.contextPath}/admin/travel/index.jsp"><i
-									class="fa fa-circle-o"></i>Chi Tiết Tour</a></li>
+									class="fa fa-circle-o"></i> <fmt:message bundle="${bun}"
+										key="theadDetailTravel" /></a></li>
 						</ul></li>
 				</ul>
 			</section>
@@ -239,11 +246,23 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Admin <small>Quản Lý</small>
+					Admin <small><fmt:message bundle="${bun}" key="manage" /></small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li><a href="#">Examples</a></li>
-					<li class="active">Blank page</li>
+					<form action="${pageContext.request.contextPath}/Language"
+						method="post" id="changeLang">
+						<div class="radio">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input type="radio" name="changeLang" onclick="submitForm()"
+										value="vi_Vn" ${lang.equals("vi_VN") ? "checked" : ""} />VN
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input type="radio" name="changeLang" onclick="submitForm()"
+										value="en_Us" ${lang.equals("en_Us")? "checked" : ""} />EN
+								</div>
+							</div>
+						</div>
+					</form>
 				</ol>
 			</section>

@@ -34,5 +34,10 @@
 	document.getElementById('${index}').style.backgroundColor = "CornflowerBlue";
 	document.getElementById('${index}').style.color = "black";
 </script>
+<script>
+	function submitForm(){
+		document.getElementById('changeLang').submit();
+	}
+</script>
 </body>
 </html>
